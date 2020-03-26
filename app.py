@@ -15,6 +15,3 @@ def predict():
     model_probability = model.predict_proba([A])
     prediction = "Probability of  this user having Diabetes is %0.2f"%model_probability[0][1]
     return render_template('index.html',result = prediction)
-    
-if __name__ == '__main__':
-        app.run(debug=True)
