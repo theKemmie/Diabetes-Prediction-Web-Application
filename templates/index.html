@@ -69,10 +69,10 @@
       .main-block {
       flex-direction: row;
       }
+      }
       .left-part, form {
       width: 50%;
       }
-        }
       .result{
         position: absolute;
         visibility: visible;
@@ -90,7 +90,7 @@
     <div class="main-block">
       <div class="left-part">
       </div>
-      <form action="{{ url_for('predict')}}" method="post" onsubmit="return false">
+      <form action="{{ url_for('predict')}}" method="post">
         <section>
         <center><h1><b>Diabetes Prediction</b></h1></center>
         <p>This Web Application is processed by a Machine Learning Algorithm to predict probability of an individual having Diabetes. </p>
@@ -106,8 +106,7 @@
            <input type="number" name="DiabetesPedigreeFunction" step=0.001 placeholder="Diabetes Pedigree Function" required>
            <input type="number" name="Age" placeholder="Age" required>
         </div>
-        <center><button type="submit">Predict</button></center><br>
-        <center><button type="reset" value="Reset">Reset</button></center>
+        <center><button type="submit">Predict</button></center>
         <div class = "result">
             <h2>Result</h2>
             <p>{{result}}</p>
