@@ -16,6 +16,12 @@
       font-weight: 400;
       color: seagreen;
       }
+      label {
+      margin: 0 0 0px;
+      font-weight: 50;
+      color: red;
+      font-size: 12px;
+      }
       p {
       margin: 0 0 5px;
       }
@@ -49,7 +55,7 @@
       input::placeholder {
       color: #666;
       }
-      input, label {
+      input {
         display: block;
       }
       button {
@@ -76,12 +82,13 @@
       .result{
         position: absolute;
         visibility: visible;
-        top: 200px;
-        right: 350px;
-        width: 200px;
-        height: 100px;
+        top: 70%;
+        right: 25%;
+        width: 15%;
+        height: 15%;
         border: 3px solid seagreen;
-        border-radius: 4px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #f5f5f5;
         text-align: center;
     }
     </style>
@@ -94,16 +101,24 @@
         <section>
         <center><h1><b>Diabetes Prediction</b></h1></center>
         <p>This Web Application is processed by a Machine Learning Algorithm to predict probability of an individual having Diabetes. </p>
-        <p><i>Note that this system is 80% accurate</i></p>
+        <p><i>Note that this model is 81% accurate</i></p>
         <div class="info">
-        	  <p>Please Enter values for the following:</p>
-         <input type="number" name="Pregnancies" placeholder="Number of Pregnancies" required>
+        	  <p><b>Please Enter values for the following:</b></p><br>
+            <label><i>HINT: If you're of the Male gender or have not been pregnant before, input 0</i></label>
+         <input type="number" name="Pregnancies" placeholder="Number of times pregnant" required>
+          <label><i>HINT: Plasma glucose concentration </i></label>
            <input type="number" name="Glucose" placeholder="Glucose Level" required>
+           <label><i>HINT: Diastolic blood pressure (mm Hg)</i></label>
            <input type="number" step=0.01 name="Blood Pressure" placeholder="Blood Pressure" required>
+           <label><i>HINT: Triceps skin fold thickness (mm)</i></label>
            <input type="number" step=0.01 name="Skin Thickness" placeholder="Skin Thickness" required>
+           <label><i>HINT:  2-Hour serum insulin (mu U/ml)</i></label>
            <input type="number" name="Insulin" step=0.01 placeholder="Insulin Level" required>
+           <label><i>HINT: Body Mass Index = (weight in kg/(height in m)^2)</i></label>
            <input type="number" name="BMI" step=0.01 placeholder="Body Mass Index" required>
+           <label><i>HINT: A function which scores likelihood of diabetes based on family history</i></label>
            <input type="number" name="DiabetesPedigreeFunction" step=0.001 placeholder="Diabetes Pedigree Function" required>
+           <label><i>HINT: If you're of the Male gender or have not been pregnant before, input 0</i></label>
            <input type="number" name="Age" placeholder="Age" required>
         </div>
         <center><button type="submit">Predict</button></center>
