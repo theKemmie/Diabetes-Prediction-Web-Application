@@ -1,7 +1,7 @@
 # Diabetes Prediction using Machine Learning
 Prediction of Probability of Diabetes using Logistic Regression algorithm and Deployed using Flask and Heroku.
 ## Heres's the Heroku link
-https://calm-temple-03915.herokuapp.com/
+https://diabetes-probability.herokuapp.com/
 ### Medium Post
 Here's a [link](https://link.medium.com/9H5DBhZ8a5) to the blog post where I explained the processes involved in developing this application.
 #### Screenshot of Diabetes Prediction Page
