@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI BASED SOFTWARE | Prediction</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+  </head>
+  <body>
+    <div class="page_layout">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/index">
+          <img
+            class="logo"
+            width="50"
+            height="50"
+            alt="graduation cap"
+            src="/static/assets/images/logo.png"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul id="navbar-nav" class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/predict">Prediction</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  
+      <div
+      class="container-fluid h-100 d-flex flex-row justify-content-center align-items-center text-center">     
+      <form action="{{ url_for('predict')}}" method="POST" onsubmit="" id="myform">
+          <centre><h2 style="color:brown" >Input Features</h2></centre>
+          <div class="form-row" style="width: 100%;">
+            <div class="form-group col-md-6">
+              <label for="cgpa">CGPA</label>
+              <input
+                type="number"
+                class="form-control"
+                id="cgpa"
+                name="a"
+                min="1"
+                max="4"
+                step="0.01"
+                placeholder="CGPA"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="AttemptCount">Module Attempt Count</label>
+              <input
+                type="number"
+                class="form-control"
+                id="AttemptCount"
+                name="b"
+                min="1"
+                max="5"
+                step="1"
+                placeholder="Module Attempt Count"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row" style="width: 100%;">
+            <div class="form-group col-md-6">
+              <label for="PlagiarismHistory">Plagiarism History</label>
+              <input
+                type="number"
+                class="form-control"
+                id="PlagiarismHistory"
+                name="c"
+                min="0"
+                max="2"
+                step="1"
+                placeholder="Plagiarism History"
+                required
+              />
+            </div>
+              <div class="form-group col-md-6">
+              <label for="CW1">First Course Work Score</label>
+              <input
+                type="number"
+                class="form-control"
+                id="CW1"
+                name="d"
+                min="1"
+                max="100"
+                step="0.01"
+                placeholder="First Course Work Score"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row" style="width: 100%;">
+            <div class="form-group col-md-6">
+              <label for="CW2">Second Course Work Score</label>
+              <input
+                type="number"
+                class="form-control"
+                id="CW2"
+                name="e"
+                min="1"
+                max="100"
+                step="0.01"
+                placeholder="Second Course Work Score"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="ESE">Semester Examination Score</label>
+              <input
+                type="number"
+                class="form-control"
+                id="ESE"
+                name="f"
+                min="1"
+                max="100"
+                step="0.01"
+                placeholder="End of Semester Examination Score"
+                required
+              />
+            </div>
+          </div>
+          
+
+          <button type="submit" class="btn btn-primary" value="Predict">Predict</button>
+          <div id = "result">
+            <h3>Result: {{result}}</h3>
+          </div>
+        </div>
+      </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('form').submit(function (event) {
+              event.preventDefault();
+              $.ajax({
+                  type: 'POST',
+                  url: '/predict',
+                  data: $('form').serialize(),
+                  dataType: 'json',  // Expect JSON response
+                  success: function (response) {
+                      var result = response.result;
+  
+                      console.log(result);  // Log the result to the console
+  
+
+                      // Display the result in the HTML
+                      $('#result h3').text('Result: ' + result);
+
+  
+                  }
+              });
+          });
+      });
+  </script>
+  
+    <script src="/static/nav.js"></script>
+  </body>
+</html>
