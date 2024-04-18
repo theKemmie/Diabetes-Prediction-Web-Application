@@ -15,4 +15,4 @@ six==1.14.0
 sklearn==0.0
 virtualenv==20.0.13
 virtualenvwrapper-win==1.2.6
-Werkzeug==2.2.3
+Werkzeug==2.3.8
